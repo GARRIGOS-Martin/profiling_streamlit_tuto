@@ -21,7 +21,7 @@ with st.sidebar:
 if tabs == 'Charger les données':
     file = st.file_uploader("Chargez vos données")
     if file: 
-        df = pd.read_csv(file, index_col=None)
+        df = pd.read_csv(file, index_col=None, sep =";")
         df.to_csv('dataset.csv', index=None)
         st.dataframe(df)
 
