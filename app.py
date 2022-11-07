@@ -1,5 +1,5 @@
 import pandas as pd
-import pandas_profiling as pp
+import pandas_profiling
 import streamlit as st
 from st_on_hover_tabs import on_hover_tabs
 import os
@@ -34,7 +34,7 @@ elif tabs == 'Analyser':
 
 elif tabs == 'Exporter':
     with open("output.html", 'rb') as f: 
-        st.download_button("Download Model", f, "rapport_analyse_data.html")
+        st.download_button("Télécharger le rapport", f, "rapport_analyse_data.html")
     
 
 
