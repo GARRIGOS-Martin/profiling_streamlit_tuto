@@ -10,7 +10,7 @@ st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_ht
 st.header("Overview d'un dataset en 2 clicks")
 
 if os.path.exists('./dataset.csv'): 
-    df = pd.read_csv('dataset.csv', index_col=None)
+    df = pd.read_csv('dataset.csv', index_col=None, sep = ";")
 
 with st.sidebar:
     
