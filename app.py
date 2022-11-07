@@ -50,7 +50,7 @@ elif tabs == 'Analyser':
 
 elif tabs == 'Exporter':
     with open("output.html", 'rb') as f: 
-        dw = st.download_button("Télécharger le rapport ", f, "rapport_analyse_data.html")
+        dw = st.download_button("Télécharger le rapport 💾 ", f, "rapport_analyse_data.html")
         if dw : 
             st.balloons()
     
