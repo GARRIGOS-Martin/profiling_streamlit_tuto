@@ -5,9 +5,9 @@ from st_on_hover_tabs import on_hover_tabs
 import os
 from streamlit_pandas_profiling import st_profile_report
 
-st.set_page_config(layout="wide", page_title="IIIDATA TUTO" , page_icon="🧊", initial_sidebar_state="expanded")
+st.set_page_config(layout="wide", page_title="IIIDATA TUTO")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
-st.header("Overview d'un dataset en 2 clicks")
+st.header("Faites une première analyse automatisée de vos données")
 
 
 if os.path.exists('./dataset.csv'): 
@@ -26,10 +26,11 @@ if tabs == 'Charger les données':
         df = pd.read_csv(file, index_col=None, sep = separator)
         df.to_csv('dataset.csv', index=None)
         if len(df.columns) >= 2 : 
-            st.info("Données chargées correctement, vous pouvez passer à l'analyse")
+            st.success("Données chargées correctement, vous pouvez passer à l'analyse")
         else : 
-            st.info('Il semblerait que vous avez sélectionné le mauvais séparateur')
+            st.error('Il semblerait que vous avez sélectionné le mauvais séparateur')
         st.dataframe(df)
+    st.image("./background.png")
         
         
 
@@ -42,7 +43,11 @@ elif tabs == 'Analyser':
 
 elif tabs == 'Exporter':
     with open("output.html", 'rb') as f: 
-        st.download_button("Télécharger le rapport", f, "rapport_analyse_data.html")
+        dw = st.download_button("Télécharger le rapport", f, "rapport_analyse_data.html")
+        if dw : 
+            st.balloons()
+    
+    st.image("./background.png")
     
 
 
