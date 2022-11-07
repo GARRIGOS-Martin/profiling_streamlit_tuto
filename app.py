@@ -10,7 +10,7 @@ st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_ht
 st.header("Overview d'un dataset en 2 clicks")
 
 if os.path.exists('./dataset.csv'): 
-    df = pd.read_csv('dataset.csv', index_col=None, sep = ";")
+    df = pd.read_csv('dataset.csv', index_col=None)
 
 with st.sidebar:
     
@@ -20,10 +20,17 @@ with st.sidebar:
 
 if tabs == 'Charger les données':
     file = st.file_uploader("Chargez vos données")
+    separator = st.radio("Si votre dataset ne s'affiche pas correctement, sélectionner le bon séparateur", [",", ";"])
     if file: 
-        df = pd.read_csv(file, index_col=None, sep =";")
+        df = pd.read_csv(file, index_col=None, sep = separator)
         df.to_csv('dataset.csv', index=None)
+        if len(df.columns) >= 2 : 
+            st.info("Données chargées correctement, vous pouvez passer à l'analyse")
+        else : 
+            st.info('Il semblerait que vous avez sélectionné le mauvais séparateur')
         st.dataframe(df)
+        
+        
 
 elif tabs == 'Analyser':
     st.title("Exploratory Data Analysis")
