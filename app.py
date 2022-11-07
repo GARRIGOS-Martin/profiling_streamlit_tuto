@@ -10,11 +10,11 @@ st.set_page_config(layout="wide", page_title="IIIDATA TUTO")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
 git, linkedin = st.columns(2)
 git.markdown("[![Foo](https://img.icons8.com/material-outlined/48/000000/github.png)](https://github.com/GARRIGOS-Martin/profiling_streamlit_tuto)")
-git.info(":point_up_2: Récupérez l'intégralité du code ici :point_up_2:")
+git.info("👆 Récupérez l'intégralité du code ici 👆")
 linkedin.markdown("[![Foo](https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-48.png)](https://www.linkedin.com/company/iiidata/?viewAsMember=true)")
-linkedin.info(":point_up_2: N'hésitez pas à nous suivre sur Linkedin :point_up_2:")
+linkedin.info("👆 N'hésitez pas à nous suivre sur Linkedin 👆")
 
-st.header(" :computer: Faites une première analyse automatisée de vos données :bar_chart:")
+st.header(" 💻 Faites une première analyse automatisée de vos données 📊")
 
 
 if os.path.exists('./dataset.csv'): 
@@ -50,7 +50,7 @@ elif tabs == 'Analyser':
 
 elif tabs == 'Exporter':
     with open("output.html", 'rb') as f: 
-        dw = st.download_button("Télécharger le rapport", f, "rapport_analyse_data.html")
+        dw = st.download_button("Télécharger le rapport 💾", f, "rapport_analyse_data.html")
         if dw : 
             st.balloons()
     
