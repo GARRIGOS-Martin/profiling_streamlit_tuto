@@ -5,7 +5,7 @@ from st_on_hover_tabs import on_hover_tabs
 import os
 from streamlit_pandas_profiling import st_profile_report
 
-st.set_page_config(layout="centered", page_title="IIIDATA TUTO" , page_icon="🧊", initial_sidebar_state="expanded")
+st.set_page_config(layout="wide", page_title="IIIDATA TUTO" , page_icon="🧊", initial_sidebar_state="expanded")
 st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
 st.header("Overview d'un dataset en 2 clicks")
 
